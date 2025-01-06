@@ -3,11 +3,11 @@ from unittest import TestCase
 
 from rest_framework.exceptions import ValidationError
 
-from validation_dataclass import DataclassImproved
+from validation_dataclass import ValidationDataclass
 
 
 @dataclass
-class Datalass_01(DataclassImproved):
+class Datalass_01(ValidationDataclass):
     field_01: str
     field_02: int
     field_03: dict
@@ -61,12 +61,12 @@ class TestDataclassImproved(TestCase):
 
         # region Датаклассы
         @dataclass
-        class NestedDatalass_01(DataclassImproved):
+        class NestedDatalass_01(ValidationDataclass):
             field_01: list[int]
             field_02: dict
 
         @dataclass
-        class Datalass_02(DataclassImproved):
+        class Datalass_02(ValidationDataclass):
             field_01: str
             field_02: int
             field_03: dict
@@ -116,16 +116,16 @@ class TestDataclassImproved(TestCase):
         }
         # region Датаклассы
         @dataclass
-        class NestedDatalass_02(DataclassImproved):
+        class NestedDatalass_02(ValidationDataclass):
             field_02: dict
 
         @dataclass
-        class NestedDatalass_01(DataclassImproved):
+        class NestedDatalass_01(ValidationDataclass):
             field_01: list[int]
             field_02: NestedDatalass_02
 
         @dataclass
-        class Datalass_02(DataclassImproved):
+        class Datalass_02(ValidationDataclass):
             field_01: str
             field_02: int
             field_03: dict
@@ -185,12 +185,12 @@ class TestDataclassImproved(TestCase):
 
         # region Датаклассы
         @dataclass
-        class NestedDatalass_01(DataclassImproved):
+        class NestedDatalass_01(ValidationDataclass):
             field_01: list[int]
             field_02: dict
 
         @dataclass
-        class Datalass_02(DataclassImproved):
+        class Datalass_02(ValidationDataclass):
             field_01: str
             field_02: int
             field_03: dict
@@ -239,7 +239,7 @@ class TestDataclassImproved(TestCase):
             'field_05': 10
         }
         @dataclass
-        class Datalass_01(DataclassImproved):
+        class Datalass_01(ValidationDataclass):
             field_01: str
             field_02: int
             field_03: dict
@@ -332,12 +332,12 @@ class TestDataclassImproved(TestCase):
 
         # region Датаклассы
         @dataclass
-        class NestedDatalass_01(DataclassImproved):
+        class NestedDatalass_01(ValidationDataclass):
             field_01: list[int]
             field_02: dict
 
         @dataclass
-        class Datalass_02(DataclassImproved):
+        class Datalass_02(ValidationDataclass):
             field_01: NestedDatalass_01
             field_02: str
             field_03: int
@@ -373,12 +373,12 @@ class TestDataclassImproved(TestCase):
 
         # region Датаклассы
         @dataclass
-        class NestedDatalass_01(DataclassImproved):
+        class NestedDatalass_01(ValidationDataclass):
             field_01: list[int]
             field_02: dict
 
         @dataclass
-        class Datalass_02(DataclassImproved):
+        class Datalass_02(ValidationDataclass):
             field_01: NestedDatalass_01
             field_02: str
             field_03: int
@@ -414,12 +414,12 @@ class TestDataclassImproved(TestCase):
 
         # region Датаклассы
         @dataclass
-        class NestedDatalass_01(DataclassImproved):
+        class NestedDatalass_01(ValidationDataclass):
             field_01: list[int]
             field_02: dict | None
 
         @dataclass
-        class Datalass_02(DataclassImproved):
+        class Datalass_02(ValidationDataclass):
             field_01: NestedDatalass_01
             field_02: str
             field_03: int

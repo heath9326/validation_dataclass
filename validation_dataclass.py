@@ -4,10 +4,10 @@ from rest_framework.exceptions import ValidationError
 
 
 @dataclass
-class DataclassImproved:
+class ValidationDataclass:
 
     def convert_value(self, value):
-        if isinstance(value, DataclassImproved):
+        if isinstance(value, ValidationDataclass):
             # Рекурсивно сериализируем вложенные датаклассы
             return value.as_dict()
         elif isinstance(value, list):
@@ -55,7 +55,7 @@ class DataclassImproved:
             field_value = dict_data[field.name]
 
             # Рекурсивно валидируем поля вложенного датакласса
-            if isinstance(field_type, type) and issubclass(field_type, DataclassImproved):
+            if isinstance(field_type, type) and issubclass(field_type, ValidationDataclass):
                 nested_instance = field_type.from_dict(dict_data[field.name])
                 dict_data[field.name] = nested_instance
 
